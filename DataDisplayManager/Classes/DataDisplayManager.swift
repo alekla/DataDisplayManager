@@ -9,23 +9,17 @@
 import UIKit
 
 
-struct Model<T> {
-    private(set) var data: T!
-    private(set) var action: ((Int) -> ())?
-}
+class DataDisplayManager: NSObject {
+    
 
-
-class DataDisplayManager: NSObject, UITableViewDelegate,UITableViewDataSource {
-    
-    
-    
     // MARK:- class variables
-    var sections: [DataTableSection] = []
+    var sections: [DataSection] = []
     var table: UITableView!
+    var collectionView: UICollectionView!
     var selectedIndexPaths: [IndexPath] = []
     
     
-    // MARK:- init
+    // MARK:- init as tableView
     init(table: UITableView) {
         super.init()
         self.table = table
@@ -33,8 +27,34 @@ class DataDisplayManager: NSObject, UITableViewDelegate,UITableViewDataSource {
         self.table.dataSource = self
     }
     
+    init(collectionView: UICollectionView) {
+        super.init()
+        self.collectionView = collectionView
+        self.collectionView.dataSource = self
+        self.collectionView.delegate = self
+    }
     
-    // MARK:- tableView datasource
+    
+    // MARK:- append new sections
+    func append(_ section: DataSection) {
+        self.sections.append(section)
+    }
+    func append(_ sections: [DataSection]) {
+        self.sections.append(contentsOf: sections)
+    }
+    // MARK:- clear
+    func clear() {
+        self.sections = []
+    }
+    
+    // MARK:- reload
+    func reloadTable() {
+        self.table.reloadData()
+    }
+}
+// MARK:- UITableViewDataSource
+extension DataDisplayManager: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var item = self.sections[indexPath.section].rows[indexPath.row]
         
@@ -54,8 +74,11 @@ class DataDisplayManager: NSObject, UITableViewDelegate,UITableViewDataSource {
         return self.sections[section].rows.count
     }
     
+}
+
+// MARK:- UITableViewDelegate
+extension DataDisplayManager: UITableViewDelegate {
     
-    // MARK:- tableView delegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var item = self.sections[indexPath.section].rows[indexPath.row]
         let cell = tableView.cellForRow(at: indexPath)!
@@ -70,8 +93,6 @@ class DataDisplayManager: NSObject, UITableViewDelegate,UITableViewDataSource {
             item.isSelected = true
             self.selectedIndexPaths.append(indexPath)
         }
-        
-        
     }
     
     // MARK:- titles
@@ -109,24 +130,59 @@ class DataDisplayManager: NSObject, UITableViewDelegate,UITableViewDataSource {
         return self.sections[section].headerView
     }
     
+}
+
+
+// MARK:- UICollectionViewDelegate
+extension DataDisplayManager: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        var item = self.sections[indexPath.section].rows[indexPath.row]
+        let cell = collectionView.cellForItem(at: indexPath)!
+        item.action(.select, cell: cell, indexPath: indexPath)
+        if self.selectedIndexPaths.contains(indexPath) {
+            let index = selectedIndexPaths.index(where: { $0 == indexPath })
+            if let index  = index {
+                item.isSelected = false
+                self.selectedIndexPaths.remove(at: index)
+            }
+        } else {
+            item.isSelected = true
+            self.selectedIndexPaths.append(indexPath)
+        }
+        
+    }
+    
+
     
     
-    // MARK:- append new sections
-    func append(_ section: DataTableSection) {
-        self.sections.append(section)
+}
+
+// MARK:- UICollectionViewDataSource
+extension DataDisplayManager: UICollectionViewDataSource {
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        var item = self.sections[indexPath.section].rows[indexPath.row]
+        
+        var isSelected = false
+        if self.selectedIndexPaths.contains(indexPath) { isSelected = true }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: item.cellIdentifier, for: indexPath)
+        item.isSelected = isSelected
+        item.configure(cell)
+        return cell
     }
-    func append(_ sections: [DataTableSection]) {
-        self.sections.append(contentsOf: sections)
-    }
-    // MARK:- clear
-    func clear() {
-        self.sections = []
+
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 0
     }
     
-    // MARK:- reload
-    func reloadTable() {
-        self.table.reloadData()
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 0
     }
+    
+    
+    
+
+
+    
 }
 
 

@@ -9,7 +9,7 @@
 import Foundation
 
 
-open class DataTableSection {
+open class DataSection {
     private(set) var rows = [Row]()
     
     

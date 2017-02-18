@@ -14,9 +14,10 @@
 		B301A49CFF3C4C0BDBA2CE4BA68D4358 /* Pods-DataDisplayManager_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C634257A205A724A5154A49576E4586 /* Pods-DataDisplayManager_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BDFC87CEDBFF1D53DD072BA126C6E9B2 /* Pods-DataDisplayManager_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C9C274103C9A44FC6F9BF77402F0FC2 /* Pods-DataDisplayManager_Tests-dummy.m */; };
 		C4494CE21E58E0FB006DEAE4 /* TableViewElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4494CE11E58E0FB006DEAE4 /* TableViewElements.swift */; };
-		C4494CE41E58E102006DEAE4 /* DataDisplayManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4494CE31E58E102006DEAE4 /* DataDisplayManger.swift */; };
-		C4494CE61E58E774006DEAE4 /* DataTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4494CE51E58E774006DEAE4 /* DataTableRow.swift */; };
-		C4494CE81E58E7AE006DEAE4 /* DataTableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4494CE71E58E7AE006DEAE4 /* DataTableSection.swift */; };
+		C4494CE41E58E102006DEAE4 /* DataDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4494CE31E58E102006DEAE4 /* DataDisplayManager.swift */; };
+		C4494CE61E58E774006DEAE4 /* DataRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4494CE51E58E774006DEAE4 /* DataRow.swift */; };
+		C4494CE81E58E7AE006DEAE4 /* DataSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4494CE71E58E7AE006DEAE4 /* DataSection.swift */; };
+		C4494CEA1E58EA7F006DEAE4 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4494CE91E58EA7F006DEAE4 /* Model.swift */; };
 		D4CE8F273FCC7D6CFC30E3AFD37AE4E2 /* Pods-DataDisplayManager_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 47CF74454E1F007CE2331A7B1A876992 /* Pods-DataDisplayManager_Example-dummy.m */; };
 		EA6C15D04B80B7156DC81D15C1C70E9B /* DataDisplayManager-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FFC16D705BF8E0F3B8BBB133D5A46CA /* DataDisplayManager-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FD8EE73FDF6F3AB1F5E62BE775C1BCC6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
@@ -59,9 +60,10 @@
 		B863169A810DA1F6381489B19FBF083C /* Pods-DataDisplayManager_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-DataDisplayManager_Tests-resources.sh"; sourceTree = "<group>"; };
 		B9BA8AB0675537F79EF950D8E574827D /* Pods-DataDisplayManager_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DataDisplayManager_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		C4494CE11E58E0FB006DEAE4 /* TableViewElements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewElements.swift; sourceTree = "<group>"; };
-		C4494CE31E58E102006DEAE4 /* DataDisplayManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataDisplayManger.swift; sourceTree = "<group>"; };
-		C4494CE51E58E774006DEAE4 /* DataTableRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTableRow.swift; sourceTree = "<group>"; };
-		C4494CE71E58E7AE006DEAE4 /* DataTableSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTableSection.swift; sourceTree = "<group>"; };
+		C4494CE31E58E102006DEAE4 /* DataDisplayManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataDisplayManager.swift; sourceTree = "<group>"; };
+		C4494CE51E58E774006DEAE4 /* DataRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataRow.swift; sourceTree = "<group>"; };
+		C4494CE71E58E7AE006DEAE4 /* DataSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSection.swift; sourceTree = "<group>"; };
+		C4494CE91E58EA7F006DEAE4 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		CF0F8A712E18A54674637B852EFD7BBE /* Pods-DataDisplayManager_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-DataDisplayManager_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		DA40A2282BEB04C2B5F892734C60E9F0 /* Pods-DataDisplayManager_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DataDisplayManager_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -111,10 +113,11 @@
 		18CC8E3419AA56EA6D2522ACF29543C8 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				C4494CE31E58E102006DEAE4 /* DataDisplayManger.swift */,
+				C4494CE31E58E102006DEAE4 /* DataDisplayManager.swift */,
 				C4494CE11E58E0FB006DEAE4 /* TableViewElements.swift */,
-				C4494CE71E58E7AE006DEAE4 /* DataTableSection.swift */,
-				C4494CE51E58E774006DEAE4 /* DataTableRow.swift */,
+				C4494CE71E58E7AE006DEAE4 /* DataSection.swift */,
+				C4494CE51E58E774006DEAE4 /* DataRow.swift */,
+				C4494CE91E58EA7F006DEAE4 /* Model.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -358,10 +361,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4494CE21E58E0FB006DEAE4 /* TableViewElements.swift in Sources */,
-				C4494CE41E58E102006DEAE4 /* DataDisplayManger.swift in Sources */,
+				C4494CE41E58E102006DEAE4 /* DataDisplayManager.swift in Sources */,
 				8D5C1A7C9EF04A7C80D851FCB31CEB17 /* DataDisplayManager-dummy.m in Sources */,
-				C4494CE61E58E774006DEAE4 /* DataTableRow.swift in Sources */,
-				C4494CE81E58E7AE006DEAE4 /* DataTableSection.swift in Sources */,
+				C4494CEA1E58EA7F006DEAE4 /* Model.swift in Sources */,
+				C4494CE61E58E774006DEAE4 /* DataRow.swift in Sources */,
+				C4494CE81E58E7AE006DEAE4 /* DataSection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
