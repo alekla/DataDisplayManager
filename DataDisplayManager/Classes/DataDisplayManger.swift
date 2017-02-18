@@ -59,7 +59,7 @@ class DataDisplayManager: NSObject, UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var item = self.sections[indexPath.section].rows[indexPath.row]
         let cell = tableView.cellForRow(at: indexPath)!
-        item.action(.click, cell: cell, indexPath: indexPath)
+        item.action(.select, cell: cell, indexPath: indexPath)
         if self.selectedIndexPaths.contains(indexPath) {
             let index = selectedIndexPaths.index(where: { $0 == indexPath })
             if let index  = index {
@@ -118,11 +118,12 @@ class DataDisplayManager: NSObject, UITableViewDelegate,UITableViewDataSource {
     func append(_ sections: [DataTableSection]) {
         self.sections.append(contentsOf: sections)
     }
-    
+    // MARK:- clear
     func clear() {
         self.sections = []
     }
     
+    // MARK:- reload
     func reloadTable() {
         self.table.reloadData()
     }
