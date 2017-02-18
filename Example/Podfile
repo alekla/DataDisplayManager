@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'DataDisplayManager_Example' do
+  pod 'DataDisplayManager', :path => '../'
+
+  target 'DataDisplayManager_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
