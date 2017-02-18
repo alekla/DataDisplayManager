@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'DataDisplayManager'
-  s.version          = '1.0.0'
+  s.version          = '1.0.1'
   s.summary          = 'DataDisplayManager - provider fro UITableView'
 
 # This description is used to generate tags and improve search results.

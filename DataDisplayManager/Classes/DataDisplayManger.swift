@@ -71,8 +71,6 @@ class DataDisplayManager: NSObject, UITableViewDelegate,UITableViewDataSource {
             self.selectedIndexPaths.append(indexPath)
         }
         
-        print("selected: \t\n \(self.selectedIndexPaths)")
-        
         
     }
     
