@@ -1,0 +1,6 @@
+framework module Pods_DataDisplayManager_Example {
+  umbrella header "Pods-DataDisplayManager_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

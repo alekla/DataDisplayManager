@@ -1,0 +1,22 @@
+{
+  "name": "DataDisplayManager",
+  "version": "0.1.0",
+  "summary": "A short description of DataDisplayManager.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/alekla/DataDisplayManager",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "alekla": "sasha.klavsut@mail.ru"
+  },
+  "source": {
+    "git": "https://github.com/alekla/DataDisplayManager.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "DataDisplayManager/Classes/**/*"
+}

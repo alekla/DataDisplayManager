@@ -1,0 +1,16 @@
+PODS:
+  - DataDisplayManager (0.1.0)
+
+DEPENDENCIES:
+  - DataDisplayManager (from `../`)
+
+EXTERNAL SOURCES:
+  DataDisplayManager:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  DataDisplayManager: 9a27c91115f1d5f70daf06ab497e271707de0130
+
+PODFILE CHECKSUM: 3481e5e4e0415d513c0d6a656a0530fbc7946b83
+
+COCOAPODS: 1.2.0

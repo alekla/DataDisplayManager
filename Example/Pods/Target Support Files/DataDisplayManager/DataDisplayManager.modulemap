@@ -1,0 +1,6 @@
+framework module DataDisplayManager {
+  umbrella header "DataDisplayManager-umbrella.h"
+
+  export *
+  module * { export * }
+}
