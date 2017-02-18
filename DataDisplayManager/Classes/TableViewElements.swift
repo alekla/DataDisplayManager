@@ -10,8 +10,9 @@ import Foundation
 import UIKit
 
 
-protocol ConfigurableCell {
+public protocol ConfigurableCell {
     associatedtype T
+    
     func configure(model: Model<T>, state: Bool)
     
     static var cellIdentifier: String { get }
@@ -21,7 +22,7 @@ protocol ConfigurableCell {
 
 
 
-enum DataTableActionType {
+public enum DataTableActionType {
     case select
 }
 

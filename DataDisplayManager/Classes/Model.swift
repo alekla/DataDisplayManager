@@ -10,7 +10,13 @@ import Foundation
 
 
 
-struct Model<T> {
-    private(set) var data: T!
-    private(set) var action: ((Int) -> ())?
+public struct Model<T> {
+    public var data: T!
+    public var action: ((Int) -> ())?
+    
+    
+    public init(data: T,action:  ((Int) -> ())?) {
+        self.data = data
+        self.action = action
+    }
 }

@@ -12,23 +12,25 @@ import Foundation
 open class DataSection {
     private(set) var rows = [Row]()
     
+    public init() {
+        
+    }
+    public var headerHeight: CGFloat?
+    public var footerHeight: CGFloat?
+    public var headerView: UIView?
+    public var footerView: UIView?
+    public var headerTitle: String?
+    public var footerTitle: String?
     
-    var headerHeight: CGFloat?
-    var footerHeight: CGFloat?
-    var headerView: UIView?
-    var footerView: UIView?
-    var headerTitle: String?
-    var footerTitle: String?
-    
-    func append(_ row: Row) {
+    public func append(_ row: Row) {
         self.rows.append(row)
     }
     
-    func append(_ rows: [Row]) {
+    public func append(_ rows: [Row]) {
         self.rows.append(contentsOf: rows)
     }
     
-    func clear() {
+    public func clear() {
         self.rows = []
     }
 }
