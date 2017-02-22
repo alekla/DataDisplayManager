@@ -38,7 +38,7 @@ open class DataRow<CellType: SettableCell>: Row  {
         return CellType.estimatedHeight
     }
     
-    public var blocks: [String: ActionModel<CellType>?] = [:]
+    public var blocks: [String: ( (ActionModel<CellType>) -> () )?] = [:]
     
     public init(model: Model<T>) {
         self.viewModel = model
@@ -50,33 +50,16 @@ open class DataRow<CellType: SettableCell>: Row  {
     }
    
     
-    
     public func action(_ type: DataTableActionType, cell: UIView, indexPath: IndexPath) {
         if let cellTypped = cell as? CellType {
             let model = ActionModel(cell: cellTypped, state: isSelected, indexPath: indexPath)
-            self.blocks[type.name()] = model
+            if let action = self.blocks[type.name()] {
+                if let block = action {
+                    block(model)
+                }
+                
+            }
         }
-  
-        
-        
-      
-        
     }
-    
-    
-    
-    
-    public func actionFor(type: DataTableActionType, action: @escaping (ActionModel<CellType>)-> ()) {
-        print("BLOCK ACTION")
-        let index  = type.name()
-        print("blocks: \(blocks)")
-        if let block = self.blocks[index] {
-            action(block!)
-            print("actionInsert")
-            
-        }
-        print("nope")
-    }
-    
     
 }
