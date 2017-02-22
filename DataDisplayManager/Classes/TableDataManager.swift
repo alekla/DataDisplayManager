@@ -43,6 +43,13 @@ open class TableDataManager: NSObject {
         self.table.reloadData()
     }
     
+    public func getSelectedIndexPaths() -> [IndexPath] {
+        return selectedIndexPaths
+    }
+    public func getSelectedIndexPathsCount() -> Int {
+        return selectedIndexPaths.count
+    }
+    
     deinit {
         clear()
         print("DDM deinited")
