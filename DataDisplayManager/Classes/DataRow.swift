@@ -11,23 +11,17 @@ import UIKit
 
 public protocol Row {
     var isSelected: Bool! { get set }
-    func configure(_ cell: UITableViewCell)
-    func configure(_ cell: UICollectionViewCell)
+    func configure(_ cell: UIView)
     
     var cellIdentifier: String { get }
     var rowHeight: CGFloat { get }
     var estimatedHeight: CGFloat { get }
     
-    func action(_ type: DataTableActionType, cell: UITableViewCell, indexPath: IndexPath)
-    func action(_ type: DataTableActionType, cell: UICollectionViewCell, indexPath: IndexPath)
+    func action(_ type: DataTableActionType, cell: UIView, indexPath: IndexPath)
 }
 
 
-
-// where CellType: UITableViewCell
-open class DataRow<CellType: ConfigurableCell>: Row  {
-    
-    
+open class DataRow<CellType: SettableCell>: Row  {
     
     typealias T = CellType.T
     
@@ -44,31 +38,44 @@ open class DataRow<CellType: ConfigurableCell>: Row  {
         return CellType.estimatedHeight
     }
     
-    public var block: ((CellType, IndexPath,Bool) -> ())?
+    public var blocks: [String: ActionModel<CellType>?] = [:]
     
     public init(model: Model<T>) {
         self.viewModel = model
     }
     
     
-    public func configure(_ cell: UITableViewCell) {
+    public func configure(_ cell: UIView) {
         (cell as? CellType)?.configure(model: self.viewModel, state: isSelected)
     }
-    public func configure(_ cell: UICollectionViewCell) {
-        (cell as? CellType)?.configure(model: self.viewModel, state: isSelected)
-    }
+   
     
     
-    public func action(_ type: DataTableActionType, cell: UITableViewCell, indexPath: IndexPath) {
-        if let block = block, let cellTypped = cell as? CellType {
-            block(cellTypped,indexPath,isSelected)
+    public func action(_ type: DataTableActionType, cell: UIView, indexPath: IndexPath) {
+        if let cellTypped = cell as? CellType {
+            let model = ActionModel(cell: cellTypped, state: isSelected, indexPath: indexPath)
+            self.blocks[type.name()] = model
         }
+  
+        
+        
+      
         
     }
-    public func action(_ type: DataTableActionType, cell: UICollectionViewCell, indexPath: IndexPath) {
-        if let block = block, let cellTypped = cell as? CellType {
-            block(cellTypped,indexPath,isSelected)
+    
+    
+    
+    
+    public func actionFor(type: DataTableActionType, action: @escaping (ActionModel<CellType>)-> ()) {
+        print("BLOCK ACTION")
+        let index  = type.name()
+        print("blocks: \(blocks)")
+        if let block = self.blocks[index] {
+            action(block!)
+            print("actionInsert")
+            
         }
+        print("nope")
     }
     
     

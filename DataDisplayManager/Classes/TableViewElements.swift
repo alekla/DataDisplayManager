@@ -10,11 +10,10 @@ import Foundation
 import UIKit
 
 
-public protocol ConfigurableCell {
+public protocol SettableCell {
     associatedtype T
     
     func configure(model: Model<T>, state: Bool)
-    
     static var cellIdentifier: String { get }
     static var rowHeight: CGFloat { get }
     static var estimatedHeight: CGFloat { get }
@@ -24,6 +23,18 @@ public protocol ConfigurableCell {
 
 public enum DataTableActionType {
     case select
+    case deselect
+    
+    func name() -> String {
+        switch self {
+        case .select:
+            return "select"
+        case .deselect:
+            return "deselect"
+        default:
+            fatalError("Unexpected index")
+        }
+    }
 }
 
 

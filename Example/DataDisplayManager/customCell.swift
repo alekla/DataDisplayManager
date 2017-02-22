@@ -8,7 +8,7 @@
 
 import UIKit
 import DataDisplayManager
-class customCell: UICollectionViewCell,ConfigurableCell {
+class customCell: UICollectionViewCell,SettableCell {
     public static var estimatedHeight: CGFloat {
         return 50
     }

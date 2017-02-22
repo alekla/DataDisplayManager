@@ -31,6 +31,6 @@ open class DataSection {
     }
     
     public func clear() {
-        self.rows = []
+        self.rows.removeAll()
     }
 }
