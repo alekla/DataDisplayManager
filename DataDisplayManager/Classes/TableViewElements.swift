@@ -24,6 +24,7 @@ public protocol SettableCell {
 public enum DataTableActionType {
     case select
     case deselect
+    case configure
     
     func name() -> String {
         switch self {

@@ -68,6 +68,7 @@ extension TableDataManager: UITableViewDataSource {
         if self.selectedIndexPaths.contains(indexPath) { isSelected = true }
         let cell = tableView.dequeueReusableCell(withIdentifier: item.cellIdentifier, for: indexPath)
         item.isSelected = isSelected
+        item.action(.configure, cell: cell, indexPath: indexPath)
         item.configure(cell)
         return cell
     }
