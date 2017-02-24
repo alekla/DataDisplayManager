@@ -3,7 +3,7 @@
 //  DataDisplayManager
 //
 //  Created by sasha klavsut on 18.02.17.
-//  Copyright © 2017 sasha klavsut. All rights reserved.
+//  Copyrhs © 2017 sasha klavsut. All rhss reserved.
 //
 
 import Foundation
@@ -15,8 +15,8 @@ public protocol SettableCell {
     
     func configure(model: Model<T>, state: Bool)
     static var cellIdentifier: String { get }
-    static var rowHeight: CGFloat { get }
-    static var estimatedHeight: CGFloat { get }
+    static var rowHeight: CGFloat? { get }
+    static var estimatedHeight: CGFloat? { get }
 }
 
 
@@ -36,6 +36,23 @@ public enum DataTableActionType {
             fatalError("Unexpected index")
         }
     }
+}
+
+
+public func += (lhs: CollectionDataManager, rhs: DataSection) {
+    lhs.append(rhs)
+}
+
+public func += (lhs: CollectionDataManager, rhs: [DataSection]) {
+    lhs.append(rhs)
+}
+
+public func += (lhs: TableDataManager, rhs: DataSection) {
+    lhs.append(rhs)
+}
+
+public func += (lhs: TableDataManager, rhs: [DataSection]) {
+    lhs.append(rhs)
 }
 
 

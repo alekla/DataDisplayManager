@@ -10,27 +10,31 @@ import Foundation
 
 
 open class DataSection {
-    private(set) var rows = [Row]()
+    open private(set) var rows = [Row]()
     
-    public init() {
-        
+    
+    public init() {  }
+    open var headerHeight: CGFloat?
+    open var footerHeight: CGFloat?
+    open var headerView: UIView?
+    open var footerView: UIView?
+    open var headerTitle: String?
+    open var footerTitle: String?
+    
+    
+    open var numberOfRows: Int {
+        return rows.count
     }
-    public var headerHeight: CGFloat?
-    public var footerHeight: CGFloat?
-    public var headerView: UIView?
-    public var footerView: UIView?
-    public var headerTitle: String?
-    public var footerTitle: String?
     
-    public func append(_ row: Row) {
+    open func append(_ row: Row) {
         self.rows.append(row)
     }
     
-    public func append(_ rows: [Row]) {
+    open func append(_ rows: [Row]) {
         self.rows.append(contentsOf: rows)
     }
     
-    public func clear() {
+    open func clear() {
         self.rows.removeAll()
     }
 }

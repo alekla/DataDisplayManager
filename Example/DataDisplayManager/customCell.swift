@@ -9,12 +9,12 @@
 import UIKit
 import DataDisplayManager
 class customCell: UICollectionViewCell,SettableCell {
-    public static var estimatedHeight: CGFloat {
-        return 50
+    public static var estimatedHeight: CGFloat? {
+        return nil
     }
 
     
-    public static var rowHeight: CGFloat {
+    public static var rowHeight: CGFloat? {
         return 50
     }
 

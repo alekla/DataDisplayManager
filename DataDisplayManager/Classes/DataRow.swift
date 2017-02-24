@@ -14,8 +14,9 @@ public protocol Row {
     func configure(_ cell: UIView)
     
     var cellIdentifier: String { get }
-    var rowHeight: CGFloat { get }
-    var estimatedHeight: CGFloat { get }
+    var rowHeight: CGFloat? { get }
+    var estimatedHeight: CGFloat? { get }
+    
     
     func action(_ type: DataTableActionType, cell: UIView, indexPath: IndexPath)
 }
@@ -25,30 +26,34 @@ open class DataRow<CellType: SettableCell>: Row  {
     
     typealias T = CellType.T
     
-    public var isSelected: Bool!
-    var viewModel: Model<T>!
+    open var isSelected: Bool!
+    open let viewModel: Model<T>!
     
-    public var cellIdentifier: String {
+    open var cellIdentifier: String {
         return CellType.cellIdentifier
     }
-    public var rowHeight: CGFloat {
+    open var rowHeight: CGFloat? {
         return CellType.rowHeight
     }
-    public var estimatedHeight: CGFloat {
+    open var estimatedHeight: CGFloat? {
         return CellType.estimatedHeight
     }
+    open var hashValue: Int {
+        return ObjectIdentifier(self).hashValue
+    }
     
-    public var actions: [DataTableActionType: ( (ActionModel<CellType>) -> () )?] = [:]
+    
+    open var actions: [DataTableActionType: ( (ActionModel<CellType>) -> () )?] = [:]
     
     public init(model: Model<T>) {
         self.viewModel = model
     }
     
     
-    public func configure(_ cell: UIView) {
+    open func configure(_ cell: UIView) {
         (cell as? CellType)?.configure(model: self.viewModel, state: isSelected)
     }
-   
+    
     
     public func action(_ type: DataTableActionType, cell: UIView, indexPath: IndexPath) {
         if let cellTypped = cell as? CellType {
@@ -61,4 +66,5 @@ open class DataRow<CellType: SettableCell>: Row  {
         }
     }
     
+ 
 }
